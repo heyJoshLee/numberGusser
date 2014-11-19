@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    
+    <title>Number Guesser</title>
+    </head>
+<body>
+   <div id="pageWrapper">
+   
+   <div id="playArea">
+      <label for="playerChoice"><h1>Pick a number between 1 and 100.</h1><h3> I'll guess it!</h3></label> <br>
+       <input type="text" id='playerChoice' name='playerChoice' placeholder="Enter your guess"> 
+       <form NAME="myform" ACTION="" METHOD="GET">
+           <select id='dropDown' name='getThis'>
+              <option>Linear search</option> 
+              <option>Binary search</option>
+           </select>
+       </form>
+       <button>Play</button>
+       
+       <div id="guessBank"></div>
+       <div id="guessShow"></div>
+       
+   </div>
+   
+    <script src="jquery-1.11.1.js"></script>
+    <script src="script.js"></script>
+        
+    
+    </div> <!-- pageWrapper -->
+    </body>
+
+</html>

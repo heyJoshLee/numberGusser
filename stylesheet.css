@@ -1,0 +1,39 @@
+/* CSS */
+* {
+    font-family: sans-serif;
+}
+
+
+#playArea {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 200px;
+}
+
+#pageWrapper {
+     height: 400px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+body {
+        background-color: #3498db;
+}
+
+button,
+select {
+    margin-top: 20px;  
+    border: none;
+    background-color: snow;
+    border-radius: 0px;
+}
+
+button {
+    width: 100px;   
+}
+
+
+h3 {
+    margin: 0;   
+}
+
