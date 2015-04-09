@@ -1,47 +1,48 @@
-var playerChoice = 0;
-var max = 100;
-var min = 1;
-var guess = 0;
-var guessNum = 0;
-var searchType = "Linear search";
+var globals = {
+    min: 1,
+    playerChoice: 0,
+    max: 100,
+    guess: 0,
+    guessNum: 0,
+    searchType: "Linear search"
+}
 
 var startGuessing = function () {
-        playerChoice = $("#playerChoice").val();
-        if (playerChoice > 100 || playerChoice < 1 || playerChoice % 1 !== 0) {
+        globals.playerChoice = $("#playerChoice").val();
+        if (globals.playerChoice > 100 || globals.playerChoice < 1 || globals.playerChoice % 1 !== 0) {
             alert("Please pick a whole number between 1 and 100.");
         } else {
-            min = 1;
-            max = 100;
-            guess = 0;
-            guessNum = 0;
+            globals.min = 1;
+            globals.max = 100;
+            globals.guess = 0;
+            globals.guessNum = 0;
             $('#answer').remove();
 
-                //Binary Search
-            if (searchType === "Binary search" && playerChoice !== guess) {
-                while (guess != playerChoice) {
-                    guessNum += 1;
-                    guess = Math.floor((min + max) / 2);
-                    console.log(guess);
-                    if (guess > playerChoice) {
-                        max = guess - 1;
-                        console.log("new max: " + max);
+            //Binary Search
+            if (globals.searchType === "Binary search") {
+                while (globals.guess != globals.playerChoice) {
+                    globals.guessNum  += 1;
+                    globals.guess = Math.floor((globals.min  + globals.max) / 2);
+                    console.log(globals.guess);
+                    if (globals.guess > globals.playerChoice) {
+                        globals.max = globals.guess - 1;
+                        console.log("new max: " + globals.max);
+                    } else if (globals.guess < globals.playerChoice) {
+                        globals.min = globals.guess + 1;
+                        console.log("new min: " + globals.min );
                     }
-                    if (guess < playerChoice) {
-                        min = guess + 1;
-                        console.log("new min: " + min);
-                    }
-                    //$("#guessBank").append(guess + "<br>").addClass('animated fadeInDown');;
+
                 }
-                console.log("Is your number " + guess);
+                console.log("Is your number " + globals.guess);
                 //Linear Search
-            } else if (searchType === "Linear search") {
-                while (guess != playerChoice) {
-                    guessNum += 1;
-                    console.log(guess);
-                    guess += 1;
+            } else if (globals.searchType === "Linear search") {
+                while (globals.guess != globals.playerChoice) {
+                    globals.guessNum  += 1;
+                    console.log(globals.guess);
+                    globals.guess += 1;
                 }
             }
-            $("#guessShow").html("<p id='answer'>Your number is: " + guess + "<br> Number of guesses: " + guessNum + "</p>");
+            $("#guessShow").html("<p id='answer'>Your number is: " + globals.guess + "<br> Number of guesses: " + globals.guessNum  + "</p>");
         }
     };
 
@@ -50,5 +51,5 @@ $("button").click(function () {
 });
 
 $("#dropDown").change(function () {
-    searchType = document.getElementById("dropDown").value;
+    globals.searchType = document.getElementById("dropDown").value;
 });
